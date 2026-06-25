@@ -16,9 +16,6 @@ from .serializers import (
 
 
 class ItemsListView(generics.ListAPIView):
-
-    # authentication_classes = [JWTAuthentication]
-    # permission_classes = [IsAuthenticated]
     serializer_class = ItemsListSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter,]
     search_fields = ["name", "description", "hsn_sac_code",]

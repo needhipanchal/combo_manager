@@ -165,11 +165,10 @@ SIMPLE_JWT = {
 # ──────────────────────────────────────────────
 CORS_ALLOW_ALL_ORIGINS = False
 
-CORS_ALLOWED_ORIGINS = config(
-    'CORS_ALLOWED_ORIGINS',
-    default='http://localhost:3000,http://localhost:5173'
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS', 
+    default='localhost,127.0.0.1,demotest.co.in,www.demotest.co.in'
 ).split(',')
-
 # ──────────────────────────────────────────────
 # Static & Media Files
 # ──────────────────────────────────────────────
@@ -242,3 +241,12 @@ LOGGING = {
 PUBLIC_SCAN_BASE_URL = config('PUBLIC_SCAN_BASE_URL', default='http://localhost:5173')
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+# Force ALLOWED_HOSTS for production
+ALLOWED_HOSTS = [
+    'demotest.co.in',
+    'www.demotest.co.in',
+    'localhost',
+    '127.0.0.1',
+]
