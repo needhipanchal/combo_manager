@@ -84,9 +84,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'combo_manager.wsgi.application'
 ASGI_APPLICATION = 'combo_manager.asgi.application'
 
-# ──────────────────────────────────────────────
-# Database — PostgreSQL
-# ──────────────────────────────────────────────
 
 import os
 
@@ -96,7 +93,7 @@ DATABASES = {
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST', default='localhost'),
+        'HOST': config('DB_HOST', default='127.0.0.1'),
         'PORT': config('DB_PORT', default='3306'),
     }
 }
@@ -240,7 +237,7 @@ LOGGING = {
 
 PUBLIC_SCAN_BASE_URL = config('PUBLIC_SCAN_BASE_URL', default='http://localhost:5173')
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Force ALLOWED_HOSTS for production
@@ -249,4 +246,11 @@ ALLOWED_HOSTS = [
     'www.demotest.co.in',
     'localhost',
     '127.0.0.1',
+]
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://demotest.co.in",
+    "https://www.demotest.co.in",
+    "http://localhost:8000",
 ]
